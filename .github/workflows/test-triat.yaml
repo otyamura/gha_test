@@ -5,7 +5,7 @@ on:
       - 'aws/**'
 jobs:
   tfsec:
-    name: tfsec
+    name: triat-scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
