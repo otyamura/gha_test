@@ -1,4 +1,4 @@
-name: test-tfsec
+name: test-tfsec-pr
 on:
   pull_request:
     paths:
@@ -13,4 +13,5 @@ jobs:
       - name: Run tfsec PR commenter
         uses: aquasecurity/tfsec-pr-commenter-action@v1.0.2
         with:
+          tfsec_vars: --format default
           github_token: ${{ secrets.GITHUB_TOKEN }}
