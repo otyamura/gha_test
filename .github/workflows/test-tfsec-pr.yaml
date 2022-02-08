@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run tfsec PR commenter
-        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.2
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.5
         with:
           tfsec_vars: --format default
           github_token: ${{ secrets.GITHUB_TOKEN }}
