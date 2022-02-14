@@ -1,0 +1,16 @@
+name: test-tfsec-pr-at-pr
+on:
+  pull_request:
+    paths:
+      - 'aws/**'
+jobs:
+  pull_request_test:
+    name: Run tfsec-pr
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run tfsec PR commenter
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.0.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
