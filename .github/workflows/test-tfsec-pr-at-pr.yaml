@@ -1,21 +1,10 @@
-name: test-tfsec-pr
+name: test-tfsec-pr-at-pr
 on:
-  push:
   pull_request:
     paths:
       - 'aws/**'
 jobs:
-  push_test:
-    if: ${{ github.event_name == 'push'}}
-    name: Run tfsec-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone repo
-        uses: actions/checkout@master
-      - name: tfsec
-        uses: aquasecurity/tfsec-action@v1.0.0
   pull_request_test:
-    if: ${{ github.event_name == 'pull_request'}}
     name: Run tfsec-pr
     runs-on: ubuntu-latest
     steps:
@@ -25,3 +14,4 @@ jobs:
         uses: aquasecurity/tfsec-pr-commenter-action@v1.0.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          tfsec_args: -m MEDIUM
